@@ -3,7 +3,8 @@ import fs from 'fs';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass'; // Подключаем Sass
 import bulk from 'gulp-sass-bulk-importer';
-import autoprefixer from 'gulp-autoprefixer'; // Подключаем библиотеку для автоматического добавления префиксов
+//import autoprefixer from 'gulp-autoprefixer'; // Подключаем библиотеку для автоматического добавления префиксов
+import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat'; // Подключаем пакет для конкатенации файлов
 import clean from 'gulp-clean-css';
 import map from 'gulp-sourcemaps';
@@ -28,6 +29,8 @@ import sprite from 'gulp-svg-sprite';
 import ttf2woff2 from 'gulp-ttftowoff2';
 import ttf2woff from 'gulp-ttf2woff';
 import chalk from 'chalk'; // Раскрашиваем консоль при ошибке
+import postcss from 'gulp-postcss';
+import tailwindcss from 'tailwindcss';
 import gcmq from 'gulp-group-css-media-queries'; //del
 import modifyCssUrls from 'gulp-modify-css-urls'; //del
 import rebase from 'gulp-css-url-rebase'; //del
@@ -101,6 +104,11 @@ const paths = {
   },
 };
 
+const processors = [
+  tailwindcss,
+  autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }),
+];
+
 // Тестирование GULP
 gulp.task('hello', () => {
   console.log('Hello Gulp');
@@ -121,11 +129,27 @@ gulp.task('browser-sync', () => {
 gulp.task('sass', () => src(paths.css.src) // выбираем папку
   .pipe(map.init()) // Инициализировать sourcemaps
   .pipe(bulk()) // чтобы scss-файлы можно было импортировать не по одному, а целыми директориями
+  .pipe(concat('style.scss'))
+  .pipe(sass({
+    outputStyle: 'expanded',
+  }).on('error', sass.logError))
+  .pipe(postcss(processors))
+  //.pipe(postcss([autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })]))
+  //.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
+  .pipe(rename('style.css'))
+  .pipe(map.write(paths.map)) // Записать карту исходных файлов в получившемся файле
+  .pipe(dest(paths.css.dest)) // выгружаем в прод
+  .pipe(browserSync.reload({ stream: true })));
+
+gulp.task('sassFinal', () => src(paths.css.src) // выбираем папку
+  .pipe(map.init()) // Инициализировать sourcemaps
+  .pipe(bulk()) // чтобы scss-файлы можно было импортировать не по одному, а целыми директориями
   .pipe(concat('style.min.scss'))
   .pipe(sass({
-    outputStyle: 'compressed',
+    outputStyle: 'expanded',
   }).on('error', sass.logError))
-  .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
+  .pipe(postcss(processors))
+  .pipe(postcss([autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })]))
   .pipe(clean({
     level: 2,
   })) // Очистить от лишнего
@@ -325,7 +349,7 @@ gulp.task('fonts', (done) => { // https://habr.com/ru/post/560894/
 
 // Следим за изменениями в файлах и запускаем соответствующую задачу при каждом изменении
 gulp.task('watch', () => {
-  watch('app/**/*.html', parallel('html')); // Наблюдение за HTML
+  watch('app/**/*.html', parallel('html', 'sass')); // Наблюдение за HTML
   watch('app/**/*.php', parallel('php')); // Наблюдение за PHP
   watch('app/**/*.scss', parallel('sass', 'css-libs')); // Наблюдение за CSS
   watch('app/**/*.js', parallel('libJs', 'devJs')); // Наблюдение за JS
@@ -353,6 +377,10 @@ gulp.task('clean', async () => del.sync('docs/**/*'));
 gulp.task('build', parallel('clean', 'css-libs', 'sass', 'libJs', 'buildJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html'));
 
 gulp.task('predef', series('css-libs', 'sass', 'libJs', 'devJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html', 'browser-sync'));
+
+gulp.task('predefFinal', series('css-libs', 'sassFinal', 'libJs', 'devJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html', 'browser-sync'));
+
+gulp.task('final', parallel('predefFinal', 'watch'));
 
 // Запуск по дефолту 'gulp'
 gulp.task('default', parallel('predef', 'watch'));

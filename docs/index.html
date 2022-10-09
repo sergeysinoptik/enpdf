@@ -23,18 +23,112 @@
 	<link rel="stylesheet"
 				href="css/libs.min.css">
 	<link rel="stylesheet"
+				href="css/style.css">
+	<link rel="stylesheet"
 				href="css/style.min.css">
 	<title>English PDF Materials</title>
 </head>
-<body>
-  <div class="flex --dir-column">
-    
-    <main class="main">
-        
-    </main>
-    
-    <script src="js/libs.min.js"></script>
-<script src="js/main.min.js"></script>
+<body class="flex flex-col min-h-screen">
+  <header class="header h-20 z-10 bg-white fixed w-full">
+  <div class="flex flex-row justify-between items-center container mx-auto 2xl:max-w-[1440px] xl:max-w-[1140px]">
+    <a href="/" class="flex items-center gap-[13px]">
+      <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.00002 0.666504C4.54101 0.666504 3.33335 1.87416 3.33335 3.33317V9.99984C1.86002 9.99984 0.666687 11.1932 0.666687 12.6665V19.3332C0.666687 20.8065 1.86002 21.9998 3.33335 21.9998V24.6665C3.33335 26.1255 4.54101 27.3332 6.00002 27.3332H22C23.459 27.3332 24.6667 26.1255 24.6667 24.6665V7.88525C24.6666 7.53165 24.5261 7.19256 24.2761 6.94255L18.3906 1.05713C18.1406 0.807081 17.8015 0.666572 17.4479 0.666504H6.00002ZM6.00002 3.33317H16.6667V7.33317C16.6667 8.06917 17.264 8.6665 18 8.6665H22V9.99984H6.00002V3.33317ZM3.33335 12.6665H5.33335C6.43735 12.6665 7.33335 13.5625 7.33335 14.6665C7.33335 15.7705 6.43735 16.6665 5.33335 16.6665H4.66669V19.3332H3.33335V12.6665ZM15.3334 12.6665H19.3334V13.9998H16.6667V15.3332H18.7995V16.6665H16.6667V19.3332H15.3334V12.6665ZM8.66669 12.6978H10.8386C12.9479 12.6978 14 13.9664 14 15.505V16.5337C14 18.091 12.9457 19.3332 10.8203 19.3332H8.66669V12.6978ZM4.66669 13.9998V15.3332H5.33335C5.70135 15.3332 6.00002 15.0345 6.00002 14.6665C6.00002 14.2985 5.70135 13.9998 5.33335 13.9998H4.66669ZM10 14.0311V17.9998H10.8203C11.663 17.9998 12.6667 17.7444 12.6667 16.5337V15.505C12.6667 14.2864 11.6732 14.0311 10.8386 14.0311H10ZM6.00002 21.9998H22V24.6665H6.00002V21.9998Z" fill="#AB1300"/>
+      </svg>
+      <p class="text-black text-3xl font-bold">English PDF Materials</p>
+    </a>
+    <nav>
+      <a href="#" class="header-nav-item">Blog</a>
+      <a href="#" class="header-nav-item">Free English Tests</a>
+      <a href="#" class="header-nav-item">Free Exercises</a>
+      <a href="#" class="header-nav-item">Grammar Rules</a>
+      <a href="#" class="header-nav-item">Vocabulary</a>
+    </nav>
   </div>
+</header>
+  <main class="main">
+    <div class="first-screen bg-gradient-to-r from-[#FED7D2] to-[#FFEFED] h-screen pt-20">
+  <div class="bg-[url('/img/first-screen.webp')] bg-cover bg-no-repeat h-full">
+    <div class="container flex flex-col items-start justify-center h-full mx-auto 2xl:max-w-[1440px] xl:max-w-[1140px] gap-8">
+      <h1 class="font-normal text-7xl w-1/2 text-black">
+        Your best source of English teaching material
+      </h1>
+      <h2 class="font-normal text-red text-5xl">
+        English PDF Materials
+      </h2>
+      <button class="bg-red-light hover:bg-red px-8 pt-2 pb-3 text-white text-xl font-normal rounded-3xl">
+        Search PDF
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="cta">
+  <div class="container flex flex-col mx-auto 2xl:max-w-[1440px] xl:max-w-[1140px] py-[100px] gap-16">
+    <h2 class="text-center text-black text-7xl">Test Your English Level</h2>
+    <div class="flex flex-row items-start justify-center gap-8">
+      <div class="w-1/2 flex flex-col gap-8">
+        <img class="rounded-lg" src="/img/full-english-level-test.webp" alt="full-english-level-test">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="text-5xl text-black">Full English Level Test</h3>
+          <p class="text-red text-tiny pb-2">Welcome to Test your English level (Quick Test) This online test will give you an approximate indication of your English level. Each correct answer will give you 1 point, which...</p>
+          <button class="bg-red-light px-4 pt-2 pb-3 rounded text-white text-base">Get Full English Level Test</button>
+        </div>
+      </div>
+      <div class="w-1/2 flex flex-col gap-8">
+        <img class="rounded-lg" src="/img/quick-test.webp" alt="quick-test">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="text-5xl text-black">Test Your English Level</h3>
+          <p class="text-red text-tiny pb-2">Welcome to Test your English level (Quick Test) This online test will give you an approximate indication of your English level. Each correct answer will give you 1 point, which...</p>
+          <button class="bg-red-light px-4 pt-2 pb-3 rounded text-white text-base">Get Quick Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="h-20"></div> <!--temporary-->
+    <div class="bg-gradient-to-r from-[#FED7D2] to-[#FFEFED]">
+  <div>
+    <div class="container flex flex-row mx-auto 2xl:max-w-[1440px] xl:max-w-[1140px] gap-8">
+      <div class="w-1/2"></div>
+      <div class="w-1/2 flex flex-col justify-start gap-4">
+        <h3 class="text-black text-6xl">About us</h3>
+        <h4 class="text-red text-xl capitalize">Who we are</h4>
+        <p class="text-red text-tiny pb-2">An Idea A few words on how this site was transformed from a dream into reality. The World Wide Web is an excellent place to seek out whatever you need; billions, billions of sites offering something unique to suit everyone's taste. Besides, there are plenty of English sites that offer their version of educational material, English PDF Materials are part of this niche and aims to bring...</p>
+        <div class="flex flex-row gap-4 items-center">
+          <button class="bg-red-light px-4 pt-2 pb-3 rounded text-white text-base capitalize">Contact us</button>
+          <a href="#" class="text-red text-base font-medium underline capitalize pb-1">Read more about us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="container mx-auto">
+      
+      <h1 class="text-3xl font-bold underline">
+        Привет мир!
+      </h1>
+    </div>
+  </main>
+  <footer class="footer h-32 bg-red">
+  <div class="container mx-auto flex justify-between 2xl:max-w-[1440px] xl:max-w-[1140px] items-start mt-6">
+    <div>
+      <a href="/" class="flex items-center gap-[13px]">
+        <svg  width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="fill-red-extra-light" d="M6.00002 0.666504C4.54101 0.666504 3.33335 1.87416 3.33335 3.33317V9.99984C1.86002 9.99984 0.666687 11.1932 0.666687 12.6665V19.3332C0.666687 20.8065 1.86002 21.9998 3.33335 21.9998V24.6665C3.33335 26.1255 4.54101 27.3332 6.00002 27.3332H22C23.459 27.3332 24.6667 26.1255 24.6667 24.6665V7.88525C24.6666 7.53165 24.5261 7.19256 24.2761 6.94255L18.3906 1.05713C18.1406 0.807081 17.8015 0.666572 17.4479 0.666504H6.00002ZM6.00002 3.33317H16.6667V7.33317C16.6667 8.06917 17.264 8.6665 18 8.6665H22V9.99984H6.00002V3.33317ZM3.33335 12.6665H5.33335C6.43735 12.6665 7.33335 13.5625 7.33335 14.6665C7.33335 15.7705 6.43735 16.6665 5.33335 16.6665H4.66669V19.3332H3.33335V12.6665ZM15.3334 12.6665H19.3334V13.9998H16.6667V15.3332H18.7995V16.6665H16.6667V19.3332H15.3334V12.6665ZM8.66669 12.6978H10.8386C12.9479 12.6978 14 13.9664 14 15.505V16.5337C14 18.091 12.9457 19.3332 10.8203 19.3332H8.66669V12.6978ZM4.66669 13.9998V15.3332H5.33335C5.70135 15.3332 6.00002 15.0345 6.00002 14.6665C6.00002 14.2985 5.70135 13.9998 5.33335 13.9998H4.66669ZM10 14.0311V17.9998H10.8203C11.663 17.9998 12.6667 17.7444 12.6667 16.5337V15.505C12.6667 14.2864 11.6732 14.0311 10.8386 14.0311H10ZM6.00002 21.9998H22V24.6665H6.00002V21.9998Z" fill="#AB1300"/>
+        </svg>
+        <p class="text-red-extra-light text-3xl font-bold">English PDF Materials</p>
+      </a>
+    </div>
+    <nav>
+      <a href="#" class="footer-nav-item">Blog</a>
+      <a href="#" class="footer-nav-item">Free English Tests</a>
+      <a href="#" class="footer-nav-item">Free Exercises</a>
+      <a href="#" class="footer-nav-item">Grammar Rules</a>
+      <a href="#" class="footer-nav-item">Vocabulary</a>
+    </nav>
+  </div>
+</footer>
+  <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
 </body>
 </html>

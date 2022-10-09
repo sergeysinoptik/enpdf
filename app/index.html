@@ -6,14 +6,21 @@
   "keywords":"",
   "favicon":"img/favicons/favicon",
   })
-<body>
-  <div class="flex --dir-column">
-    @@include('page-blocks/header/header.html')
-    <main class="main">
-        
-    </main>
-    @@include('page-blocks/footer/footer.html')
-    @@include('page-blocks/footer/scripts.html')
-  </div>
+<body class="flex flex-col min-h-screen">
+  @@include('page-blocks/header/header.html')
+  <main class="main">
+    @@include('bem-blocks/first-screen/first-screen.html')
+    @@include('bem-blocks/cta/cta.html')
+    <div class="h-20"></div> <!--temporary-->
+    @@include('bem-blocks/about-us/about-us.html')
+    <div class="container mx-auto">
+      
+      <h1 class="text-3xl font-bold underline">
+        Привет мир!
+      </h1>
+    </div>
+  </main>
+  @@include('page-blocks/footer/footer.html')
+  @@include('page-blocks/footer/scripts.html')
 </body>
 </html>
