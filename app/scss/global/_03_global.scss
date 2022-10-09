@@ -6,41 +6,6 @@
 	box-sizing: border-box;
 }
 
-/*стили для флексов*/
-
-.flex {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-}
-.--j-space-between {
-	justify-content: space-between;
-}
-
-.--j-center {
-	justify-content: center;
-}
-
-.--j-end {
-	justify-content: flex-end;
-}
-
-.--a-stretch {
-	align-items: stretch;
-}
-
-.--a-center {
-	align-items: center;
-}
-
-.--a-end {
-	align-items: flex-end;
-}
-
-.--dir-column{
-	flex-direction: column;
-}
-
 /*стили для html и body */
 
 html{

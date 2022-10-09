@@ -1,1 +1,1 @@
-https://sergeysinoptik.github.io/
+https://sergeysinoptik.github.io/aura/
