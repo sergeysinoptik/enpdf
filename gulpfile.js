@@ -134,8 +134,6 @@ gulp.task('sass', () => src(paths.css.src) // выбираем папку
     outputStyle: 'expanded',
   }).on('error', sass.logError))
   .pipe(postcss(processors))
-  //.pipe(postcss([autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })]))
-  //.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
   .pipe(rename('style.css'))
   .pipe(map.write(paths.map)) // Записать карту исходных файлов в получившемся файле
   .pipe(dest(paths.css.dest)) // выгружаем в прод
@@ -149,7 +147,6 @@ gulp.task('sassFinal', () => src(paths.css.src) // выбираем папку
     outputStyle: 'expanded',
   }).on('error', sass.logError))
   .pipe(postcss(processors))
-  .pipe(postcss([autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })]))
   .pipe(clean({
     level: 2,
   })) // Очистить от лишнего
@@ -376,7 +373,7 @@ gulp.task('clean', async () => del.sync('docs/**/*'));
 // Сборка проекта
 gulp.task('build', parallel('clean', 'css-libs', 'sass', 'libJs', 'buildJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html'));
 
-gulp.task('predef', series('css-libs', 'sass', 'libJs', 'devJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html', 'browser-sync'));
+gulp.task('predef', series('html', 'css-libs', 'sass', 'libJs', 'devJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'browser-sync'));
 
 gulp.task('predefFinal', series('css-libs', 'sassFinal', 'libJs', 'devJs', 'rastr', 'webp', 'svgcss', 'svgsprite', 'ttf', 'fonts', 'html', 'browser-sync'));
 
