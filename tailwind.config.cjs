@@ -7,6 +7,7 @@ module.exports = {
         red: '#5A0A00',
         'red-light': '#AB1300',
         'red-extra-light': '#E85C4A',
+        main: '#FFF7F6',
       },
     },
     fontSize: {

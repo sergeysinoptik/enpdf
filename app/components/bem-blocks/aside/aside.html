@@ -1,0 +1,23 @@
+<aside class="flex flex-col w-1/4 h-auto gap-10">
+  <div class="forms bg-slate-500">
+    a
+  </div>
+  <div class="flex flex-col gap-6 recent-posts">
+    <h4 class="text-6xl text-black">Recent Posts</h4>
+    <div class="flex flex-col gap-2">
+      @@loop('bem-blocks/aside-link/aside-link.html', 'data/recent-posts.json')
+    </div>
+  </div>
+  <div class="flex flex-col gap-6 categories">
+    <h4 class="text-6xl text-black">Categories</h4>
+    <div class="flex flex-col gap-2">
+      @@loop('bem-blocks/aside-link/aside-link.html', 'data/categories.json')
+    </div>
+  </div>
+  <div class="flex flex-col gap-6 recent-comments">
+    <h4 class="text-6xl text-black">Categories</h4>
+    <div class="flex flex-col gap-2">
+      @@loop('bem-blocks/aside-link/aside-link.html', 'data/comments.json')
+    </div>
+  </div>
+</aside>
