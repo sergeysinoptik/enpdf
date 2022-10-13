@@ -29,18 +29,28 @@
 }
 
 .btn-rounded-full {
-  @apply bg-red-light hover:bg-red 
+  @apply bg-red-light hover:bg-red hover:cursor-pointer
     px-8 pt-2 pb-3 text-white text-xl font-normal rounded-3xl;
 }
 
 .btn-rounded {
-  @apply bg-red-light px-4 pt-2 pb-3 
+  @apply bg-red-light px-4 pt-2 pb-3 hover:bg-red hover:cursor-pointer
     rounded text-white text-base capitalize;
 }
 
+.btn-rounded-l-none {
+  @apply bg-red-light px-4 pt-2 pb-3 hover:bg-red hover:cursor-pointer
+  rounded text-white text-base capitalize rounded-l-none;
+}
+
 .btn-green {
-  @apply bg-gradient-to-b from-[#6EBF7C] to-[#488559] 
+  @apply bg-gradient-to-b from-[#6EBF7C] to-[#488559] hover:cursor-pointer
     px-8 pt-2 pb-3 text-white text-xl font-normal rounded-3xl;
+}
+
+.btn-green-rounded {
+  @apply bg-gradient-to-b from-[#6EBF7C] to-[#488559] hover:cursor-pointer
+    px-8 pt-2 pb-3 text-white text-xl font-normal rounded w-full;
 }
 
 .icon-card {
@@ -56,6 +66,59 @@
 
 .bold {
   @apply font-bold contents;
+}
+
+.input {
+  @apply pl-4 h-10 rounded 
+    border border-[rgba(90,10,0,0.4)] 
+    placeholder:text-base placeholder:text-red 
+    placeholder:opacity-40;
+}
+
+.input-rounded-r-none {
+  @apply pl-4 h-10 rounded 
+    border border-[rgba(90,10,0,0.4)] 
+    placeholder:text-base placeholder:text-red 
+    placeholder:opacity-40 rounded-r-none;
+}
+
+.archive-item:first-child {
+  @apply w-full;
+}
+
+.archive-item:first-child > .archive-item-content{
+  @apply flex-row;
+}
+
+.older, .next {
+  @apply w-1/2 flex flex-row flex-grow flex-shrink
+    items-center
+    gap-4 p-6 text-6xl bg-gradient-to-b 
+    from-[#FED7D2] to-[#F6E7F0] rounded-lg;
+}
+
+.older {
+  @apply justify-start;
+}
+
+.next {
+  @apply justify-end;
+}
+
+.older::before {
+  @apply inline-block content-[''] w-6 h-6 
+    bg-[url('../../img/arrow.svg')] 
+    bg-no-repeat bg-center;
+}
+
+.next::after {
+  @apply inline-block content-[''] 
+    w-6 h-6 bg-[url('../../img/arrow.svg')] 
+    bg-no-repeat bg-center rotate-180;
+}
+
+.article p {
+  @apply text-lg leading-7;
 }
 
 /*:root {
